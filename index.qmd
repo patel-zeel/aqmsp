@@ -1,0 +1,19 @@
+## Introduction
+
+This package contains a collection of tools for **A**ir **Q**uality **M**odeling and **S**ensor **P**lacement (AQMSP). The following submodules are included:
+
+- `aqmsp`: The main package, containing the core functionality.
+- `aqmsp_data`: A submodule containing tools to process and load data. To check its documentation and examples, see [here](https://patel-zeel.github.io/aqmsp_data/).
+
+## Install
+
+To install this package and all submodules within it, first clone the repo recursively:
+```
+git clone --recursive https://github.com/patel-zeel/aqmsp.git
+```
+
+Then, install the package. This command will install all submodules as well.
+```
+cd aqmsp
+pip install -e .
+```

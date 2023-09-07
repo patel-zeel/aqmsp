@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 *.egg-info/
 aqmsp/_version.py
+/.quarto/
+
+# ignore docs
+docs/
