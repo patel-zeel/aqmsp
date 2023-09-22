@@ -8,3 +8,15 @@ aqmsp/_version.py
 
 # ignore docs
 docs/
+
+# ignore data
+*.csv
+*.json
+*.pkl
+*.h5
+*.npy
+*.npz
+*.zip
+*.gz
+*.tar
+*.xlsx

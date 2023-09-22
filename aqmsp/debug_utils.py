@@ -16,3 +16,9 @@ def get_verbose():
         return False
     else:
         raise ValueError("AQMSP_VERBOSE must be either True or False")
+
+
+def verbose_print(*args, **kwargs):
+    verbose = get_verbose()
+    if verbose:
+        print(*args, **kwargs)
