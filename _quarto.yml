@@ -4,7 +4,6 @@ project:
 
 # render only the contents mentioned in the _quarto.yml file
 
-
 website: 
   title: "AQMSP"
   sidebar:
@@ -14,9 +13,9 @@ website:
       - section: "Overview"
         path: "index.qmd"
 
-      # - section: "Examples"
-      #   contents:
-      #     - examples/all_in_one.ipynb
+      - section: "Tutorials"
+        contents:
+          - tutorials/cpcb.ipynb
 
 execute:
   freeze: auto
