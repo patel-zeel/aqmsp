@@ -20,3 +20,12 @@ docs/
 *.gz
 *.tar
 *.xlsx
+*.nc
+
+# ignore shapefiles
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+

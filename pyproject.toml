@@ -10,3 +10,8 @@ requires = [
 
 [tool.setuptools_scm]
 write_to = "aqmsp/_version.py"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+python_files = "test_*.py"  # Specify a wildcard pattern for test file names
+python_functions = "test_*"  # Specify a wildcard pattern for test function names
