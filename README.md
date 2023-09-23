@@ -3,18 +3,20 @@
 # Air Quality Modeling and Sensor Placement (AQMSP)
 
 ## Install 
-To install this package and all submodules within it, first clone the repo recursively:
-```
-git clone --recursive https://github.com/patel-zeel/aqmsp.git
+To install this package, run the following command:
+
+```bash
+pip install git+https://github.com/patel-zeel/aqmsp
 ```
 
-Then, install the package. This command will install all submodules as well.
-```
-cd aqmsp
-pip install -e .
+To install the submodules, run the above command for that submodule. For example, to install the `aqmsp_data` submodule, run the following command:
+
+```bash
+pip install git+https://github.com/patel-zeel/aqmsp_data
 ```
 
-## Submodules Guidelines
+
+## Submodules Guidelines for Contributors
 Whenever edits are made in a submodule:
 * Commit changes in the submodule
 * Commit changes in the main repo

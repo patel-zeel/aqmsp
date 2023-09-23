@@ -7,13 +7,4 @@ This package contains a collection of tools for **A**ir **Q**uality **M**odeling
 
 ## Install
 
-To install this package and all submodules within it, first clone the repo recursively:
-```
-git clone --recursive https://github.com/patel-zeel/aqmsp.git
-```
-
-Then, install the package. This command will install all submodules as well.
-```
-cd aqmsp
-pip install -e .
-```
+For installation, please refer to the `README.md` of the [main package](https://github.com/patel-zeel/aqmsp) and/or the `README.md` files of the submodules.
