@@ -67,7 +67,7 @@
     "href": "index.html#install",
     "title": "AQMSP",
     "section": "Install",
-    "text": "Install\nTo install this package and all submodules within it, first clone the repo recursively:\ngit clone --recursive https://github.com/patel-zeel/aqmsp.git\nThen, install the package. This command will install all submodules as well.\ncd aqmsp\npip install -e ."
+    "text": "Install\nFor installation, please refer to the README.md of the main package and/or the README.md files of the submodules."
   },
   {
     "objectID": "lab/sandbox.html",
