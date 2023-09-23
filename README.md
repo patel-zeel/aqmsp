@@ -1,6 +1,6 @@
 [![Coverage](https://coveralls.io/repos/github/patel-zeel/aqmsp/badge.svg?branch=main)](https://coveralls.io/github/patel-zeel/aqmsp?branch=main)
 
-[**Tutorials and Documentation**](https://patel-zeel.github.io/aqmsp/)
+[**Tutorials and Documentation**](https://patel-zeel.github.io/aqmsp/) | [**AQMSP Data**](https://github.com/patel-zeel/aqmsp_data)
 
 # Air Quality Modeling and Sensor Placement (AQMSP)
 
