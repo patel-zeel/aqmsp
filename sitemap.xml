@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/patel-zeel/aqmsp/tutorials/cpcb.html</loc>
-    <lastmod>2023-09-23T10:43:34.097Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/patel-zeel/aqmsp/lab/simulate_data_with_physics.html</loc>
-    <lastmod>2023-09-23T10:43:32.401Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/patel-zeel/aqmsp/lab/aq_forecasting.html</loc>
-    <lastmod>2023-09-23T10:43:31.293Z</lastmod>
-  </url>
-  <url>
     <loc>https://github.com/patel-zeel/aqmsp/index.html</loc>
-    <lastmod>2023-09-23T10:43:30.597Z</lastmod>
+    <lastmod>2023-10-17T05:32:07.303Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/patel-zeel/aqmsp/lab/sandbox.html</loc>
-    <lastmod>2023-09-23T10:43:31.641Z</lastmod>
+    <loc>https://github.com/patel-zeel/aqmsp/projects/active_learning_tmlr/notebooks/deep_time.html</loc>
+    <lastmod>2023-10-17T05:32:06.415Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/patel-zeel/aqmsp/active_learning/deepsensor.html</loc>
-    <lastmod>2023-09-23T10:43:33.493Z</lastmod>
+    <lastmod>2023-10-17T05:32:05.511Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/lab/aq_forecasting.html</loc>
+    <lastmod>2023-10-17T05:32:03.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/tutorials/cpcb.html</loc>
+    <lastmod>2023-10-17T05:32:02.399Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/lab/simulate_data_with_physics.html</loc>
+    <lastmod>2023-10-17T05:32:03.619Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/lab/sandbox.html</loc>
+    <lastmod>2023-10-17T05:32:04.307Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/projects/active_learning_tmlr/notebooks/explore_processed_purpleair.html</loc>
+    <lastmod>2023-10-17T05:32:05.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/patel-zeel/aqmsp/projects/active_learning_tmlr/notebooks/baselines.html</loc>
+    <lastmod>2023-10-17T05:32:07.003Z</lastmod>
   </url>
 </urlset>

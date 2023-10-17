@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>AQMSP - Some exploration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      AQMSP
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">AQMSP</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Overview</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../tutorials/cpcb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with CPCB Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Some exploration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># env: torch_gpu_py311</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"CUDA_VISIBLE_DEVICES"</span>] <span class="op">=</span> <span class="st">"3"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># don't pre-allocate memory; allocate as-needed</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"XLA_PYTHON_CLIENT_PREALLOCATE"</span>] <span class="op">=</span> <span class="st">"false"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, mean_absolute_percentage_error</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># import deepsensor.torch</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> deepsensor.data.processor <span class="im">as</span> dp</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> deepsensor.data.loader <span class="im">import</span> TaskLoader</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># from gpytorch.kernels import RBFKernel, ScaleKernel</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># from deepsensor.model.convnp import ConvNP</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># from deepsensor.train.train import Trainer</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax.numpy <span class="im">as</span> jnp</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> optax</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tinygp <span class="im">import</span> GaussianProcess, kernels</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cal_shape <span class="op">=</span> gpd.read_file(<span class="st">"/home/patel_zeel/aqmsp/aqmsp_data/datasets/shapefiles/california/CA_Counties_TIGER2016.shp"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cal_shape <span class="op">=</span> cal_shape.to_crs(<span class="st">"EPSG:4326"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> [<span class="st">"Los Angeles"</span>, <span class="st">"Orange"</span>, <span class="st">"Ventura"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>city_shape <span class="op">=</span> cal_shape[cal_shape[<span class="st">"NAME"</span>].isin(cities)]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>city_shape.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>base_path <span class="op">=</span> <span class="st">"/home/patel_zeel/OpenAQ/PurpleAir/purpleair_california.nc"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> xr.open_dataset(base_path, chunks<span class="op">=</span><span class="st">"auto"</span>).load()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ds[<span class="st">'location_id'</span>] <span class="op">=</span> ds[<span class="st">'location_id'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># city_ds</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>city_ds <span class="op">=</span> xr.open_dataset(os.path.join(<span class="st">"../data/"</span>, <span class="st">"_"</span>.join(cities)) <span class="op">+</span> <span class="st">".nc"</span>, chunks<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> ds.sel(location_id<span class="op">=</span>city_ds.location_id.values, datetime<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2021-06-01"</span>, <span class="st">"2021-08-01"</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewbox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewbox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class="xr-text-repr-fallback">&lt;xarray.Dataset&gt;
+Dimensions:      (datetime: 1488, location_id: 493)
+Coordinates:
+  * datetime     (datetime) datetime64[ns] 2021-06-01 ... 2021-08-01T23:00:00
+  * location_id  (location_id) &lt;U21 '62194' '62203' ... '227551' '227806'
+    lat          (location_id) float64 34.07 33.86 33.84 ... 34.07 34.07 34.0
+    lon          (location_id) float64 -118.2 -118.4 -118.3 ... -118.2 -118.1
+Data variables:
+    value        (datetime, location_id) float64 48.81 11.53 14.8 ... 7.326 6.9</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-084b9421-a7b0-4c4b-8a6a-cdf0bd561de1" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-084b9421-a7b0-4c4b-8a6a-cdf0bd561de1" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">datetime</span>: 1488</li><li><span class="xr-has-index">location_id</span>: 493</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-f5658967-08a7-4cb3-ae0e-a606636f653f" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-f5658967-08a7-4cb3-ae0e-a606636f653f" class="xr-section-summary">Coordinates: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">datetime</span></div><div class="xr-var-dims">(datetime)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">2021-06-01 ... 2021-08-01T23:00:00</div><input id="attrs-53b6b829-12ae-4171-b13b-ca1dbc4ee80f" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-53b6b829-12ae-4171-b13b-ca1dbc4ee80f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-04c37d3a-9cae-4acb-89c9-6dfd2b942b3d" class="xr-var-data-in" type="checkbox"><label for="data-04c37d3a-9cae-4acb-89c9-6dfd2b942b3d" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['2021-06-01T00:00:00.000000000', '2021-06-01T01:00:00.000000000',
+       '2021-06-01T02:00:00.000000000', ..., '2021-08-01T21:00:00.000000000',
+       '2021-08-01T22:00:00.000000000', '2021-08-01T23:00:00.000000000'],
+      dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">location_id</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">&lt;U21</div><div class="xr-var-preview xr-preview">'62194' '62203' ... '227806'</div><input id="attrs-93d434a1-46c9-46af-b14d-9308dac89ae9" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-93d434a1-46c9-46af-b14d-9308dac89ae9" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-c607d5e6-afe5-407a-97b3-dfa85bdbb8c3" class="xr-var-data-in" type="checkbox"><label for="data-c607d5e6-afe5-407a-97b3-dfa85bdbb8c3" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['62194', '62203', '62236', ..., '227541', '227551', '227806'],
+      dtype='&lt;U21')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lat</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">34.07 33.86 33.84 ... 34.07 34.0</div><input id="attrs-1a423778-c942-4736-b8f4-1ef5f964e972" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-1a423778-c942-4736-b8f4-1ef5f964e972" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-3c57a6df-938e-4283-9114-a1773b88dc4a" class="xr-var-data-in" type="checkbox"><label for="data-3c57a6df-938e-4283-9114-a1773b88dc4a" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([34.06846   , 33.86301   , 33.842     , 33.79555   , 33.86794   ,
+       34.094692  , 34.021534  , 33.715576  , 33.762363  , 33.766132  ,
+       33.76711   , 33.770245  , 33.761993  , 33.76539   , 33.75989   ,
+       33.76032654, 33.76507   , 33.76555   , 34.294777  , 33.93592   ,
+       34.20454   , 33.865505  , 34.074867  , 34.10024   , 34.094154  ,
+       33.813465  , 33.88721   , 34.009174  , 33.770374  , 34.40426   ,
+       33.8681    , 34.17129   , 34.111187  , 34.205975  , 34.040134  ,
+       34.51352   , 33.76684   , 34.188347  , 34.09721   , 34.293034  ,
+       34.08819   , 34.244705  , 34.545555  , 33.837345  , 33.84683   ,
+       33.975418  , 33.86719   , 34.09818   , 33.77218   , 33.772564  ,
+       34.25239   , 33.81016   , 34.200146  , 33.572186  , 33.849144  ,
+       34.132217  , 34.296574  , 34.215965  , 33.818794  , 34.119446  ,
+       34.15652   , 34.142483  , 34.22152   , 34.001152  , 33.458466  ,
+       34.16229   , 33.777584  , 34.194347  , 34.133408  , 34.168556  ,
+       34.06741   , 33.7237    , 34.07158   , 34.06528   , 34.190872  ,
+       33.876095  , 33.880737  , 33.71831   , 34.17338   , 34.134205  ,
+       34.046112  , 34.026974  , 34.04496   , 34.18797   , 34.240025  ,
+       34.080685  , 33.993607  , 34.683052  , 33.802116  , 34.017452  ,
+       33.679512  , 34.121635  , 33.73571   , 33.859295  , 34.26045   ,
+       34.182762  , 33.635567  , 34.15931   , 33.75025   , 34.0736    ,
+...
+       34.13815   , 34.76447   , 34.082874  , 33.84247   , 34.28899   ,
+       34.2713    , 33.971844  , 33.977207  , 34.16252   , 34.34517   ,
+       34.081703  , 34.218655  , 34.151833  , 33.812214  , 34.2457    ,
+       34.15546   , 34.14486   , 33.963356  , 34.144264  , 34.174786  ,
+       34.079823  , 33.86671   , 33.814045  , 33.872116  , 33.827248  ,
+       33.802864  , 34.22092   , 33.99251   , 34.32843   , 33.901363  ,
+       34.08801   , 33.597713  , 34.02364   , 33.98329   , 34.441975  ,
+       33.769012  , 34.19356   , 34.078327  , 34.12905   , 34.047226  ,
+       34.014088  , 33.752266  , 34.04771   , 34.070335  , 34.162804  ,
+       34.196377  , 34.135338  , 34.280582  , 33.77166   , 34.07223   ,
+       34.17053084, 34.101658  , 34.19908   , 34.19869   , 34.265656  ,
+       34.19031   , 34.26589   , 34.067818  , 34.201866  , 34.202133  ,
+       33.7651    , 34.04556   , 33.915825  , 33.86557   , 33.742966  ,
+       34.198745  , 34.262386  , 33.89789   , 34.59771   , 34.14971   ,
+       34.09655   , 34.112766  , 33.577766  , 34.1993    , 34.095253  ,
+       34.273697  , 34.202305  , 34.06162   , 33.859707  , 34.200657  ,
+       34.140347  , 33.880463  , 33.703217  , 34.10424   , 34.27685   ,
+       33.976826  , 34.10715   , 34.18091   , 34.225033  , 34.256535  ,
+       33.457172  , 34.200516  , 34.093456  , 34.110126  , 34.170277  ,
+       34.06933   , 34.068943  , 34.00333   ])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lon</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-118.2 -118.4 ... -118.2 -118.1</div><input id="attrs-061b3a65-aab9-4428-a167-33444f26c515" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-061b3a65-aab9-4428-a167-33444f26c515" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-564f4044-a1c8-46c3-83bc-7a870aefcef0" class="xr-var-data-in" type="checkbox"><label for="data-564f4044-a1c8-46c3-83bc-7a870aefcef0" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([-118.20639   , -118.38896   , -118.33769   , -118.26094   ,
+       -118.33041   , -118.34805   , -117.90991   , -118.303795  ,
+       -118.09173   , -118.083176  , -118.08926   , -118.090096  ,
+       -118.08767   , -118.0782    , -118.08929   , -118.08842463,
+       -118.081436  , -118.07864   , -118.57907   , -118.143265  ,
+       -118.22038   , -118.396164  , -118.14354   , -118.13673   ,
+       -118.46208   , -118.195885  , -118.412094  , -118.40904   ,
+       -118.08684   , -118.80991   , -118.34815   , -118.17784   ,
+       -118.21065   , -118.14231   , -118.41064   , -118.15334   ,
+       -118.3816    , -118.95974   , -118.25768   , -119.20321   ,
+       -118.59606   , -119.181114  , -118.08302   , -118.38025   ,
+       -118.32513   , -118.196884  , -118.15143   , -118.28198   ,
+       -118.09454   , -118.086494  , -119.14318   , -118.37255   ,
+       -118.197235  , -117.578094  , -118.37313   , -118.13837   ,
+       -118.84804   , -118.24435   , -118.12335   , -118.31143   ,
+       -117.987816  , -118.00204   , -119.17218   , -118.390915  ,
+       -117.66664   , -118.69748   , -118.36014   , -118.11403   ,
+       -118.36919   , -118.03021   , -118.46436   , -117.82643   ,
+       -118.55788   , -118.436424  , -118.75315   , -118.36251   ,
+       -118.38882   , -118.05304   , -118.04425   , -118.1651    ,
+...
+       -118.37983   , -118.00415   , -118.12928   , -118.175415  ,
+       -118.31005   , -119.01086   , -118.47207   , -119.14152   ,
+       -118.205055  , -118.38403   , -117.733864  , -118.289246  ,
+       -118.18393   , -118.6257    , -118.078865  , -119.2099    ,
+       -118.46884   , -118.16779   , -118.51949   , -118.28885   ,
+       -118.32161   , -118.51639   , -118.496864  , -118.10349   ,
+       -118.65899   , -118.50378   , -119.304955  , -118.12528   ,
+       -118.10899   , -118.11395057, -118.246605  , -118.173294  ,
+       -118.17333   , -118.43358   , -118.11096   , -118.41869   ,
+       -118.25429   , -118.16768   , -118.1692    , -118.12981   ,
+       -118.52195   , -117.847916  , -118.17351   , -117.819176  ,
+       -118.17125339, -118.4272    , -118.1891    , -118.154076  ,
+       -118.12668   , -117.97032   , -118.46301   , -117.70661   ,
+       -118.16979   , -118.40884   , -118.411705  , -118.173416  ,
+       -118.434326  , -118.20066   , -118.17186   , -118.41234   ,
+       -117.83656   , -117.77359   , -118.3317    , -118.41315   ,
+       -118.45257   , -118.20404   , -118.647896  , -118.50938   ,
+       -118.534195  , -117.615524  , -118.17351   , -117.70546   ,
+       -118.21719   , -118.1603    , -117.74944   , -118.15808   ,
+       -118.05477   ])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f57c8ea9-f5f7-4e70-8531-4fe464197525" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-f57c8ea9-f5f7-4e70-8531-4fe464197525" class="xr-section-summary">Data variables: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>value</span></div><div class="xr-var-dims">(datetime, location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">48.81 11.53 14.8 ... 7.326 6.9</div><input id="attrs-0bee7b19-f90b-4065-a57b-a77effde47a4" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-0bee7b19-f90b-4065-a57b-a77effde47a4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-aa5ac9d0-6daf-4911-94d0-c447c7088202" class="xr-var-data-in" type="checkbox"><label for="data-aa5ac9d0-6daf-4911-94d0-c447c7088202" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[48.80666667, 11.53      , 14.79736842, ...,         nan,
+                nan,         nan],
+       [48.19      , 16.20666667, 15.9625    , ...,         nan,
+                nan,         nan],
+       [56.49655172, 14.29333333, 16.42972973, ...,         nan,
+                nan,         nan],
+       ...,
+       [ 9.46818182, 10.64782609, 12.62352941, ...,  7.59444444,
+         9.69583333,  7.15555556],
+       [14.08461538,  8.19      , 11.03793103, ...,  8.00666667,
+         7.96086957,  6.75333333],
+       [10.83333333,  6.83636364, 10.47692308, ...,  5.31666667,
+         7.32619048,  6.9       ]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-bbd97822-e8ec-4ce1-b709-168b1362a124" class="xr-section-summary-in" type="checkbox"><label for="section-bbd97822-e8ec-4ce1-b709-168b1362a124" class="xr-section-summary">Indexes: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>datetime</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-c38e0a17-8e98-48f9-995e-f084a60fb578" class="xr-index-data-in" type="checkbox"><label for="index-c38e0a17-8e98-48f9-995e-f084a60fb578" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(DatetimeIndex(['2021-06-01 00:00:00', '2021-06-01 01:00:00',
+               '2021-06-01 02:00:00', '2021-06-01 03:00:00',
+               '2021-06-01 04:00:00', '2021-06-01 05:00:00',
+               '2021-06-01 06:00:00', '2021-06-01 07:00:00',
+               '2021-06-01 08:00:00', '2021-06-01 09:00:00',
+               ...
+               '2021-08-01 14:00:00', '2021-08-01 15:00:00',
+               '2021-08-01 16:00:00', '2021-08-01 17:00:00',
+               '2021-08-01 18:00:00', '2021-08-01 19:00:00',
+               '2021-08-01 20:00:00', '2021-08-01 21:00:00',
+               '2021-08-01 22:00:00', '2021-08-01 23:00:00'],
+              dtype='datetime64[ns]', name='datetime', length=1488, freq=None))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>location_id</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-610c2b5a-5db1-4a9d-97da-8f0d188d243f" class="xr-index-data-in" type="checkbox"><label for="index-610c2b5a-5db1-4a9d-97da-8f0d188d243f" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index(['62194', '62203', '62236', '62237', '62238', '62405', '62406', '62413',
+       '62415', '62416',
+       ...
+       '226746', '226809', '226862', '226934', '227117', '227161', '227466',
+       '227541', '227551', '227806'],
+      dtype='object', name='location_id', length=493))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-5b688868-a676-4e49-a183-efc7675b06ca" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-5b688868-a676-4e49-a183-efc7675b06ca" class="xr-section-summary" title="Expand/collapse section">Attributes: <span>(0)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"></dl></div></li></ul></div></div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>random_locations <span class="op">=</span> ds.location_id.values[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">3</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> random_location <span class="kw">in</span> random_locations:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ds.sel(location_id<span class="op">=</span>random_location, datetime<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2021-06-01"</span>, <span class="st">"2021-06-10"</span>))[<span class="st">'value'</span>].plot(ax<span class="op">=</span>ax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="clean-up-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="clean-up-the-data">Clean up the data</h2>
+<p>Remove the time-stamps with massively missing data</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>missing_locations <span class="op">=</span> ds.isnull().<span class="bu">sum</span>(dim<span class="op">=</span><span class="st">"location_id"</span>)[<span class="st">'value'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>missing_locations.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>first_clean_ds <span class="op">=</span> missing_locations[missing_locations <span class="op">&lt;</span> <span class="dv">200</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>first_clean_ds.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>second_clean_ds <span class="op">=</span> missing_locations[missing_locations <span class="op">&lt;</span> <span class="dv">20</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>second_clean_ds.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clean_datetime_ds <span class="op">=</span> ds.sel(datetime<span class="op">=</span>second_clean_ds.datetime.values)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>clean_datetime_ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewbox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewbox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class="xr-text-repr-fallback">&lt;xarray.Dataset&gt;
+Dimensions:      (datetime: 1475, location_id: 493)
+Coordinates:
+  * datetime     (datetime) datetime64[ns] 2021-06-01 ... 2021-08-01T23:00:00
+  * location_id  (location_id) &lt;U21 '62194' '62203' ... '227551' '227806'
+    lat          (location_id) float64 34.07 33.86 33.84 ... 34.07 34.07 34.0
+    lon          (location_id) float64 -118.2 -118.4 -118.3 ... -118.2 -118.1
+Data variables:
+    value        (datetime, location_id) float64 48.81 11.53 14.8 ... 7.326 6.9</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-7f594908-b71f-49eb-9def-f65ca9ebcf2b" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-7f594908-b71f-49eb-9def-f65ca9ebcf2b" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">datetime</span>: 1475</li><li><span class="xr-has-index">location_id</span>: 493</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-53d8fa79-4c83-45b6-985b-959d87269cfc" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-53d8fa79-4c83-45b6-985b-959d87269cfc" class="xr-section-summary">Coordinates: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">datetime</span></div><div class="xr-var-dims">(datetime)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">2021-06-01 ... 2021-08-01T23:00:00</div><input id="attrs-e3161c29-7ebc-4c18-a8a0-2c524e680305" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-e3161c29-7ebc-4c18-a8a0-2c524e680305" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-094e3764-4387-4dd7-a60a-9954953f2443" class="xr-var-data-in" type="checkbox"><label for="data-094e3764-4387-4dd7-a60a-9954953f2443" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['2021-06-01T00:00:00.000000000', '2021-06-01T01:00:00.000000000',
+       '2021-06-01T02:00:00.000000000', ..., '2021-08-01T21:00:00.000000000',
+       '2021-08-01T22:00:00.000000000', '2021-08-01T23:00:00.000000000'],
+      dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">location_id</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">&lt;U21</div><div class="xr-var-preview xr-preview">'62194' '62203' ... '227806'</div><input id="attrs-513b2796-0d8e-4988-9f57-ab6bbbd9faf5" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-513b2796-0d8e-4988-9f57-ab6bbbd9faf5" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-533f8764-9524-4e96-8a02-3926ca79e049" class="xr-var-data-in" type="checkbox"><label for="data-533f8764-9524-4e96-8a02-3926ca79e049" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['62194', '62203', '62236', ..., '227541', '227551', '227806'],
+      dtype='&lt;U21')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lat</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">34.07 33.86 33.84 ... 34.07 34.0</div><input id="attrs-8aa4d744-cb66-47d2-8286-09832ff510e7" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-8aa4d744-cb66-47d2-8286-09832ff510e7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-1ff5e533-2ed8-4593-845e-7f042bf67c44" class="xr-var-data-in" type="checkbox"><label for="data-1ff5e533-2ed8-4593-845e-7f042bf67c44" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([34.06846   , 33.86301   , 33.842     , 33.79555   , 33.86794   ,
+       34.094692  , 34.021534  , 33.715576  , 33.762363  , 33.766132  ,
+       33.76711   , 33.770245  , 33.761993  , 33.76539   , 33.75989   ,
+       33.76032654, 33.76507   , 33.76555   , 34.294777  , 33.93592   ,
+       34.20454   , 33.865505  , 34.074867  , 34.10024   , 34.094154  ,
+       33.813465  , 33.88721   , 34.009174  , 33.770374  , 34.40426   ,
+       33.8681    , 34.17129   , 34.111187  , 34.205975  , 34.040134  ,
+       34.51352   , 33.76684   , 34.188347  , 34.09721   , 34.293034  ,
+       34.08819   , 34.244705  , 34.545555  , 33.837345  , 33.84683   ,
+       33.975418  , 33.86719   , 34.09818   , 33.77218   , 33.772564  ,
+       34.25239   , 33.81016   , 34.200146  , 33.572186  , 33.849144  ,
+       34.132217  , 34.296574  , 34.215965  , 33.818794  , 34.119446  ,
+       34.15652   , 34.142483  , 34.22152   , 34.001152  , 33.458466  ,
+       34.16229   , 33.777584  , 34.194347  , 34.133408  , 34.168556  ,
+       34.06741   , 33.7237    , 34.07158   , 34.06528   , 34.190872  ,
+       33.876095  , 33.880737  , 33.71831   , 34.17338   , 34.134205  ,
+       34.046112  , 34.026974  , 34.04496   , 34.18797   , 34.240025  ,
+       34.080685  , 33.993607  , 34.683052  , 33.802116  , 34.017452  ,
+       33.679512  , 34.121635  , 33.73571   , 33.859295  , 34.26045   ,
+       34.182762  , 33.635567  , 34.15931   , 33.75025   , 34.0736    ,
+...
+       34.13815   , 34.76447   , 34.082874  , 33.84247   , 34.28899   ,
+       34.2713    , 33.971844  , 33.977207  , 34.16252   , 34.34517   ,
+       34.081703  , 34.218655  , 34.151833  , 33.812214  , 34.2457    ,
+       34.15546   , 34.14486   , 33.963356  , 34.144264  , 34.174786  ,
+       34.079823  , 33.86671   , 33.814045  , 33.872116  , 33.827248  ,
+       33.802864  , 34.22092   , 33.99251   , 34.32843   , 33.901363  ,
+       34.08801   , 33.597713  , 34.02364   , 33.98329   , 34.441975  ,
+       33.769012  , 34.19356   , 34.078327  , 34.12905   , 34.047226  ,
+       34.014088  , 33.752266  , 34.04771   , 34.070335  , 34.162804  ,
+       34.196377  , 34.135338  , 34.280582  , 33.77166   , 34.07223   ,
+       34.17053084, 34.101658  , 34.19908   , 34.19869   , 34.265656  ,
+       34.19031   , 34.26589   , 34.067818  , 34.201866  , 34.202133  ,
+       33.7651    , 34.04556   , 33.915825  , 33.86557   , 33.742966  ,
+       34.198745  , 34.262386  , 33.89789   , 34.59771   , 34.14971   ,
+       34.09655   , 34.112766  , 33.577766  , 34.1993    , 34.095253  ,
+       34.273697  , 34.202305  , 34.06162   , 33.859707  , 34.200657  ,
+       34.140347  , 33.880463  , 33.703217  , 34.10424   , 34.27685   ,
+       33.976826  , 34.10715   , 34.18091   , 34.225033  , 34.256535  ,
+       33.457172  , 34.200516  , 34.093456  , 34.110126  , 34.170277  ,
+       34.06933   , 34.068943  , 34.00333   ])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lon</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-118.2 -118.4 ... -118.2 -118.1</div><input id="attrs-29217106-3214-4fdb-8588-5c36e002bd49" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-29217106-3214-4fdb-8588-5c36e002bd49" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-e8d5e917-c7b4-418f-849f-0106f1a8920b" class="xr-var-data-in" type="checkbox"><label for="data-e8d5e917-c7b4-418f-849f-0106f1a8920b" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([-118.20639   , -118.38896   , -118.33769   , -118.26094   ,
+       -118.33041   , -118.34805   , -117.90991   , -118.303795  ,
+       -118.09173   , -118.083176  , -118.08926   , -118.090096  ,
+       -118.08767   , -118.0782    , -118.08929   , -118.08842463,
+       -118.081436  , -118.07864   , -118.57907   , -118.143265  ,
+       -118.22038   , -118.396164  , -118.14354   , -118.13673   ,
+       -118.46208   , -118.195885  , -118.412094  , -118.40904   ,
+       -118.08684   , -118.80991   , -118.34815   , -118.17784   ,
+       -118.21065   , -118.14231   , -118.41064   , -118.15334   ,
+       -118.3816    , -118.95974   , -118.25768   , -119.20321   ,
+       -118.59606   , -119.181114  , -118.08302   , -118.38025   ,
+       -118.32513   , -118.196884  , -118.15143   , -118.28198   ,
+       -118.09454   , -118.086494  , -119.14318   , -118.37255   ,
+       -118.197235  , -117.578094  , -118.37313   , -118.13837   ,
+       -118.84804   , -118.24435   , -118.12335   , -118.31143   ,
+       -117.987816  , -118.00204   , -119.17218   , -118.390915  ,
+       -117.66664   , -118.69748   , -118.36014   , -118.11403   ,
+       -118.36919   , -118.03021   , -118.46436   , -117.82643   ,
+       -118.55788   , -118.436424  , -118.75315   , -118.36251   ,
+       -118.38882   , -118.05304   , -118.04425   , -118.1651    ,
+...
+       -118.37983   , -118.00415   , -118.12928   , -118.175415  ,
+       -118.31005   , -119.01086   , -118.47207   , -119.14152   ,
+       -118.205055  , -118.38403   , -117.733864  , -118.289246  ,
+       -118.18393   , -118.6257    , -118.078865  , -119.2099    ,
+       -118.46884   , -118.16779   , -118.51949   , -118.28885   ,
+       -118.32161   , -118.51639   , -118.496864  , -118.10349   ,
+       -118.65899   , -118.50378   , -119.304955  , -118.12528   ,
+       -118.10899   , -118.11395057, -118.246605  , -118.173294  ,
+       -118.17333   , -118.43358   , -118.11096   , -118.41869   ,
+       -118.25429   , -118.16768   , -118.1692    , -118.12981   ,
+       -118.52195   , -117.847916  , -118.17351   , -117.819176  ,
+       -118.17125339, -118.4272    , -118.1891    , -118.154076  ,
+       -118.12668   , -117.97032   , -118.46301   , -117.70661   ,
+       -118.16979   , -118.40884   , -118.411705  , -118.173416  ,
+       -118.434326  , -118.20066   , -118.17186   , -118.41234   ,
+       -117.83656   , -117.77359   , -118.3317    , -118.41315   ,
+       -118.45257   , -118.20404   , -118.647896  , -118.50938   ,
+       -118.534195  , -117.615524  , -118.17351   , -117.70546   ,
+       -118.21719   , -118.1603    , -117.74944   , -118.15808   ,
+       -118.05477   ])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-83a3503e-8560-4ff3-86a6-151ba3f2b624" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-83a3503e-8560-4ff3-86a6-151ba3f2b624" class="xr-section-summary">Data variables: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>value</span></div><div class="xr-var-dims">(datetime, location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">48.81 11.53 14.8 ... 7.326 6.9</div><input id="attrs-38edfd3a-7cfb-48d5-851b-6f644c03879a" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-38edfd3a-7cfb-48d5-851b-6f644c03879a" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-dd3177ab-9a34-466d-ba36-799916baa3b0" class="xr-var-data-in" type="checkbox"><label for="data-dd3177ab-9a34-466d-ba36-799916baa3b0" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[48.80666667, 11.53      , 14.79736842, ...,         nan,
+                nan,         nan],
+       [48.19      , 16.20666667, 15.9625    , ...,         nan,
+                nan,         nan],
+       [56.49655172, 14.29333333, 16.42972973, ...,         nan,
+                nan,         nan],
+       ...,
+       [ 9.46818182, 10.64782609, 12.62352941, ...,  7.59444444,
+         9.69583333,  7.15555556],
+       [14.08461538,  8.19      , 11.03793103, ...,  8.00666667,
+         7.96086957,  6.75333333],
+       [10.83333333,  6.83636364, 10.47692308, ...,  5.31666667,
+         7.32619048,  6.9       ]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-b41ffce6-418a-4c04-9391-a4474f50017a" class="xr-section-summary-in" type="checkbox"><label for="section-b41ffce6-418a-4c04-9391-a4474f50017a" class="xr-section-summary">Indexes: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>datetime</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-a1db0ff6-03e9-48ec-b41a-b55735139af5" class="xr-index-data-in" type="checkbox"><label for="index-a1db0ff6-03e9-48ec-b41a-b55735139af5" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(DatetimeIndex(['2021-06-01 00:00:00', '2021-06-01 01:00:00',
+               '2021-06-01 02:00:00', '2021-06-01 03:00:00',
+               '2021-06-01 04:00:00', '2021-06-01 05:00:00',
+               '2021-06-01 06:00:00', '2021-06-01 07:00:00',
+               '2021-06-01 08:00:00', '2021-06-01 09:00:00',
+               ...
+               '2021-08-01 14:00:00', '2021-08-01 15:00:00',
+               '2021-08-01 16:00:00', '2021-08-01 17:00:00',
+               '2021-08-01 18:00:00', '2021-08-01 19:00:00',
+               '2021-08-01 20:00:00', '2021-08-01 21:00:00',
+               '2021-08-01 22:00:00', '2021-08-01 23:00:00'],
+              dtype='datetime64[ns]', name='datetime', length=1475, freq=None))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>location_id</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-27c62bf8-5720-4d6e-a5d7-f2065ee714ee" class="xr-index-data-in" type="checkbox"><label for="index-27c62bf8-5720-4d6e-a5d7-f2065ee714ee" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index(['62194', '62203', '62236', '62237', '62238', '62405', '62406', '62413',
+       '62415', '62416',
+       ...
+       '226746', '226809', '226862', '226934', '227117', '227161', '227466',
+       '227541', '227551', '227806'],
+      dtype='object', name='location_id', length=493))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-cba58985-98c1-44d7-b383-7150700d1e0b" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-cba58985-98c1-44d7-b383-7150700d1e0b" class="xr-section-summary" title="Expand/collapse section">Attributes: <span>(0)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"></dl></div></li></ul></div></div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>missing_times <span class="op">=</span> clean_datetime_ds.isnull().<span class="bu">sum</span>(dim<span class="op">=</span><span class="st">"datetime"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>missing_times[<span class="st">'value'</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(missing_times.location_id.shape)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>first_clean_ds_2 <span class="op">=</span> missing_times[<span class="st">'value'</span>][missing_times[<span class="st">'value'</span>] <span class="op">&lt;</span> <span class="dv">48</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_clean_ds_2.location_id.shape)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>first_clean_ds_2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(493,)
+(458,)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Random checks</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>random_location <span class="op">=</span> missing_times.sortby(<span class="st">"value"</span>, ascending<span class="op">=</span><span class="va">False</span>).location_id.values[<span class="dv">1</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># random_location</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Missing times"</span>, missing_times.sel(location_id<span class="op">=</span>random_location))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>clean_datetime_ds.sel(location_id<span class="op">=</span>random_location)[<span class="st">'value'</span>].plot(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">3</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Missing times &lt;xarray.Dataset&gt;
+Dimensions:      ()
+Coordinates:
+    location_id  &lt;U21 '66355'
+    lat          float64 33.78
+    lon          float64 -118.4
+Data variables:
+    value        int64 282</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All locations"</span>, ds.location_id.values.shape)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All datetimes"</span>, ds.datetime.values.shape)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>clean_datetimes <span class="op">=</span> clean_datetime_ds.datetime.values</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>clean_locations <span class="op">=</span> first_clean_ds_2.location_id.values</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(clean_datetimes), <span class="bu">len</span>(clean_locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>All locations (493,)
+All datetimes (1488,)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>(1475, 458)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>clean_ds <span class="op">=</span> ds.sel(location_id<span class="op">=</span>clean_locations, datetime<span class="op">=</span>clean_datetimes)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>min_lat, max_lat <span class="op">=</span> clean_ds.lat.<span class="bu">min</span>().item(), clean_ds.lat.<span class="bu">max</span>().item()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>min_lon, max_lon <span class="op">=</span> clean_ds.lon.<span class="bu">min</span>().item(), clean_ds.lon.<span class="bu">max</span>().item()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>mean_val <span class="op">=</span> clean_ds.value.mean().item()</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>std_val <span class="op">=</span> clean_ds.value.std().item()</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>clean_ds[<span class="st">"lat"</span>] <span class="op">=</span> (clean_ds.lat <span class="op">-</span> min_lat) <span class="op">/</span> (max_lat <span class="op">-</span> min_lat)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>clean_ds[<span class="st">"lon"</span>] <span class="op">=</span> (clean_ds.lon <span class="op">-</span> min_lon) <span class="op">/</span> (max_lon <span class="op">-</span> min_lon)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>clean_ds[<span class="st">"value"</span>] <span class="op">=</span> (clean_ds.value <span class="op">-</span> mean_val) <span class="op">/</span> std_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="settings" class="level2">
+<h2 class="anchored" data-anchor-id="settings">Settings</h2>
+<ul>
+<li>Hold out half of the data for testing.</li>
+<li>Use 50 sensors for initial training and keep the rest in the pool.</li>
+<li>Train for a month of data. Place sensors using 15 days and evaluate the model for remaining 15 days.</li>
+<li>We evaluate over the next month.</li>
+</ul>
+</section>
+<section id="train-pool-test-split" class="level2">
+<h2 class="anchored" data-anchor-id="train-pool-test-split">Train pool test split</h2>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>seed <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>all_locations <span class="op">=</span> clean_ds.location_id.values</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>deployed_pool_locations, test_locations <span class="op">=</span> train_test_split(all_locations, test_size<span class="op">=</span><span class="dv">200</span>, random_state<span class="op">=</span>seed)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>deployed_locations, pool_locations <span class="op">=</span> train_test_split(deployed_pool_locations, train_size<span class="op">=</span><span class="dv">50</span>, random_state<span class="op">=</span>seed)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(deployed_locations), <span class="bu">len</span>(pool_locations), <span class="bu">len</span>(test_locations))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># train_ds = clean_ds.sel(location_id=train_locations, datetime=slice("2021-06-01", "2021-07-01"))</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># pool_ds = clean_ds.sel(location_id=datetime=slice("2021-07-01", "2021-07-15"))</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># test_ds = clean_ds.sel(datetime=slice("2021-07-15", "2021-08-01"))</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_locations(locations, ax, label):</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    tmp_ds <span class="op">=</span> clean_ds.sel(location_id<span class="op">=</span>locations)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    lons <span class="op">=</span> tmp_ds.lon.values <span class="op">*</span> (max_lon <span class="op">-</span> min_lon) <span class="op">+</span> min_lon</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    lats <span class="op">=</span> tmp_ds.lat.values <span class="op">*</span> (max_lat <span class="op">-</span> min_lat) <span class="op">+</span> min_lat</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    ax.scatter(lons, lats, label<span class="op">=</span>label, s<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>city_shape.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"white"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>))</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>plot_locations(deployed_locations, ax, <span class="st">"Deployed"</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>plot_locations(pool_locations, ax, <span class="st">"Pool"</span>)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>plot_locations(test_locations, ax, <span class="st">"Test"</span>)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>50 208 200</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f56959f5a50&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-15-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Verify sufficient data in train for any given day.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>clean_ds.sel(location_id<span class="op">=</span>deployed_locations).isnull().<span class="bu">sum</span>(dim<span class="op">=</span><span class="st">"location_id"</span>)[<span class="st">'value'</span>].plot()<span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of missing stations"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_gp(params, X):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> jnp.exp(params[<span class="st">"log_scale"</span>])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    var <span class="op">=</span> jnp.exp(params[<span class="st">"log_var"</span>])</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    noise_var <span class="op">=</span> jnp.exp(params[<span class="st">"log_noise_var"</span>])</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    kernel <span class="op">=</span> kernels.Matern52(scale<span class="op">=</span>scale) <span class="op">*</span> var</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    gp <span class="op">=</span> GaussianProcess(kernel<span class="op">=</span>kernel, diag<span class="op">=</span>noise_var, X<span class="op">=</span>X)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> gp</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> neg_log_likelihood(params, X, y):</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    gp <span class="op">=</span> get_gp(params, X)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>gp.log_probability(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="train" class="level2">
+<h2 class="anchored" data-anchor-id="train">Train</h2>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>train_ds <span class="op">=</span> clean_ds.sel(location_id<span class="op">=</span>deployed_locations, datetime<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2021-06-01"</span>, <span class="st">"2021-06-30"</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>train_ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewbox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewbox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class="xr-text-repr-fallback">&lt;xarray.Dataset&gt;
+Dimensions:      (datetime: 712, location_id: 50)
+Coordinates:
+  * datetime     (datetime) datetime64[ns] 2021-06-01 ... 2021-06-30T23:00:00
+  * location_id  (location_id) &lt;U21 '66160' '71159' '64752' ... '65887' '62430'
+    lat          (location_id) float64 0.7992 0.525 0.1814 ... 0.4406 0.2469
+    lon          (location_id) float64 0.0976 0.6555 0.8583 ... 0.4865 0.7042
+Data variables:
+    value        (datetime, location_id) float64 0.1595 0.07796 ... -0.3748</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-34f0b701-6762-457d-9bab-7ce5e2443064" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-34f0b701-6762-457d-9bab-7ce5e2443064" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">datetime</span>: 712</li><li><span class="xr-has-index">location_id</span>: 50</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-5d1b86ba-1a97-46af-80ad-cec310532943" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-5d1b86ba-1a97-46af-80ad-cec310532943" class="xr-section-summary">Coordinates: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">datetime</span></div><div class="xr-var-dims">(datetime)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">2021-06-01 ... 2021-06-30T23:00:00</div><input id="attrs-7d65352f-9a91-4e51-a9b0-0138ea00986a" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-7d65352f-9a91-4e51-a9b0-0138ea00986a" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-a78928d9-c970-4f98-a747-6b12670aeb20" class="xr-var-data-in" type="checkbox"><label for="data-a78928d9-c970-4f98-a747-6b12670aeb20" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['2021-06-01T00:00:00.000000000', '2021-06-01T01:00:00.000000000',
+       '2021-06-01T02:00:00.000000000', ..., '2021-06-30T21:00:00.000000000',
+       '2021-06-30T22:00:00.000000000', '2021-06-30T23:00:00.000000000'],
+      dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">location_id</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">&lt;U21</div><div class="xr-var-preview xr-preview">'66160' '71159' ... '65887' '62430'</div><input id="attrs-8384e62f-cf2b-425e-bdb5-8a882c2858a3" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-8384e62f-cf2b-425e-bdb5-8a882c2858a3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-c72abbf6-e583-42bc-8382-e3f940aedbca" class="xr-var-data-in" type="checkbox"><label for="data-c72abbf6-e583-42bc-8382-e3f940aedbca" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array(['66160', '71159', '64752', '74196', '72895', '64124', '70728', '72559',
+       '63667', '69446', '66327', '69902', '67318', '70436', '73227', '67011',
+       '65589', '73003', '64351', '65683', '70995', '222767', '65053',
+       '219173', '67828', '67003', '67050', '62433', '221090', '71744',
+       '65032', '68406', '65814', '64898', '224245', '63445', '69296', '63617',
+       '70209', '62431', '70269', '69298', '65807', '73012', '65014', '72633',
+       '225076', '224968', '65887', '62430'], dtype='&lt;U21')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lat</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.7992 0.525 ... 0.4406 0.2469</div><input id="attrs-dac94d42-4a56-4c5c-be5f-f09fafd114da" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-dac94d42-4a56-4c5c-be5f-f09fafd114da" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f045c9be-5830-4315-a8b4-b96e34b7cc7c" class="xr-var-data-in" type="checkbox"><label for="data-f045c9be-5830-4315-a8b4-b96e34b7cc7c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0.79919813, 0.52499266, 0.18137175, 0.6230202 , 0.67854766,
+       0.68473423, 0.47439227, 0.53801188, 0.28794662, 0.47240023,
+       0.5933248 , 0.43460861, 0.63765866, 0.48479786, 0.56097497,
+       0.45770222, 0.49264039, 0.57538095, 0.50119751, 0.16664029,
+       0.80956048, 0.65951317, 0.37787875, 0.50670131, 0.44155056,
+       0.46231442, 0.4957606 , 0.25116488, 0.60299948, 0.4971547 ,
+       0.22147682, 0.47764953, 0.32950615, 0.80377198, 0.52156655,
+       0.59644908, 0.49134173, 0.31012252, 0.42804434, 0.24729544,
+       0.54191927, 0.50400039, 0.29963618, 0.72437596, 0.68886025,
+       0.58931951, 0.49307273, 0.60783519, 0.44056351, 0.24693934])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lon</span></div><div class="xr-var-dims">(location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0976 0.6555 ... 0.4865 0.7042</div><input id="attrs-ccc8d2ef-95f1-4633-9e52-270877821c0b" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ccc8d2ef-95f1-4633-9e52-270877821c0b" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-1e2181a3-92c1-4d4c-a9bf-fbdf950bc07b" class="xr-var-data-in" type="checkbox"><label for="data-1e2181a3-92c1-4d4c-a9bf-fbdf950bc07b" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0.09760354, 0.65553148, 0.85825499, 0.17095664, 0.        ,
+       0.2651694 , 0.51476783, 0.92278974, 0.54030283, 0.52823837,
+       0.67810389, 0.65282349, 0.14507157, 0.61243271, 0.75929166,
+       0.4895829 , 0.480536  , 0.07813838, 0.43306508, 0.85420457,
+       0.0372465 , 0.50498896, 0.51976142, 0.48458642, 0.47981271,
+       0.50780689, 0.73649359, 0.70875053, 0.37455966, 0.72534915,
+       0.83995288, 0.48089475, 0.56224453, 0.0090903 , 0.77304573,
+       0.20053628, 0.40270776, 0.53584737, 0.53878682, 0.70470669,
+       0.8567679 , 0.560526  , 0.55450823, 0.12705009, 0.00864475,
+       0.59346748, 0.5045573 , 0.65552801, 0.48645308, 0.70420596])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-56414089-af68-45bb-ade6-1826962a79fa" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-56414089-af68-45bb-ade6-1826962a79fa" class="xr-section-summary">Data variables: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>value</span></div><div class="xr-var-dims">(datetime, location_id)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.1595 0.07796 ... -0.1444 -0.3748</div><input id="attrs-99d3c952-917d-43cc-aa2d-78fb467c924e" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-99d3c952-917d-43cc-aa2d-78fb467c924e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-40864bbf-bbc2-4103-8466-4106332787c2" class="xr-var-data-in" type="checkbox"><label for="data-40864bbf-bbc2-4103-8466-4106332787c2" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[ 0.15954903,  0.0779624 , -0.27941267, ...,  0.20729154,
+        -0.24858815, -0.40626083],
+       [ 0.18825166,  0.07427708, -0.32028934, ...,  0.1688527 ,
+        -0.05675669, -0.33266392],
+       [ 0.96847841,  0.0395807 , -0.36876267, ...,  0.2407929 ,
+        -0.00203281, -0.29716309],
+       ...,
+       [ 0.05120154,  0.98512707, -0.24872417, ...,  0.56219379,
+        -0.38757188, -0.29895128],
+       [-0.00179614,  0.47585146, -0.31136342, ...,  0.60514572,
+        -0.33356758, -0.38415328],
+       [-0.17640765,  0.27096861, -0.35984742, ...,  0.47983185,
+        -0.14441689, -0.37479158]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-df275d1a-2de2-4ae5-8dac-483897fc9c35" class="xr-section-summary-in" type="checkbox"><label for="section-df275d1a-2de2-4ae5-8dac-483897fc9c35" class="xr-section-summary">Indexes: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>datetime</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-0e12e6ab-51af-4543-b5e7-1f6ec50ffdf0" class="xr-index-data-in" type="checkbox"><label for="index-0e12e6ab-51af-4543-b5e7-1f6ec50ffdf0" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(DatetimeIndex(['2021-06-01 00:00:00', '2021-06-01 01:00:00',
+               '2021-06-01 02:00:00', '2021-06-01 03:00:00',
+               '2021-06-01 04:00:00', '2021-06-01 05:00:00',
+               '2021-06-01 06:00:00', '2021-06-01 07:00:00',
+               '2021-06-01 08:00:00', '2021-06-01 09:00:00',
+               ...
+               '2021-06-30 14:00:00', '2021-06-30 15:00:00',
+               '2021-06-30 16:00:00', '2021-06-30 17:00:00',
+               '2021-06-30 18:00:00', '2021-06-30 19:00:00',
+               '2021-06-30 20:00:00', '2021-06-30 21:00:00',
+               '2021-06-30 22:00:00', '2021-06-30 23:00:00'],
+              dtype='datetime64[ns]', name='datetime', length=712, freq=None))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>location_id</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-8bc7f225-10f0-4939-87c1-e38f0d2ee86b" class="xr-index-data-in" type="checkbox"><label for="index-8bc7f225-10f0-4939-87c1-e38f0d2ee86b" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Index(['66160', '71159', '64752', '74196', '72895', '64124', '70728', '72559',
+       '63667', '69446', '66327', '69902', '67318', '70436', '73227', '67011',
+       '65589', '73003', '64351', '65683', '70995', '222767', '65053',
+       '219173', '67828', '67003', '67050', '62433', '221090', '71744',
+       '65032', '68406', '65814', '64898', '224245', '63445', '69296', '63617',
+       '70209', '62431', '70269', '69298', '65807', '73012', '65014', '72633',
+       '225076', '224968', '65887', '62430'],
+      dtype='object', name='location_id'))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-3150252d-ef75-4e99-9176-54fdc674cdf8" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-3150252d-ef75-4e99-9176-54fdc674cdf8" class="xr-section-summary" title="Expand/collapse section">Attributes: <span>(0)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"></dl></div></li></ul></div></div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> []</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> []</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> time <span class="kw">in</span> tqdm(train_ds.datetime):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    tmp_ds <span class="op">=</span> train_ds.sel(datetime<span class="op">=</span>time)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    tmp_ds <span class="op">=</span> tmp_ds.dropna(dim<span class="op">=</span><span class="st">"location_id"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    X.append(jnp.stack([tmp_ds.lat.values, tmp_ds.lon.values], axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    y.append(jnp.array(tmp_ds.value.values))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>min_stations <span class="op">=</span> np.<span class="bu">min</span>([x.shape[<span class="dv">0</span>] <span class="cf">for</span> x <span class="kw">in</span> X])</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> jnp.stack([x[:min_stations] <span class="cf">for</span> x <span class="kw">in</span> X])</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> jnp.stack([y[:min_stations] <span class="cf">for</span> y <span class="kw">in</span> y])</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape, y.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  0%|          | 0/712 [00:00&lt;?, ?it/s]WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1697453314.246894 2560124 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+100%|██████████| 712/712 [00:02&lt;00:00, 337.80it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(712, 48, 2) (712, 48)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"log_scale"</span>: jnp.log(<span class="fl">0.1</span>),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"log_var"</span>: jnp.log(<span class="fl">1.0</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"log_noise_var"</span>: jnp.log(<span class="fl">0.1</span>),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loss_fn(params, X, y):</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jax.vmap(neg_log_likelihood, in_axes<span class="op">=</span>(<span class="va">None</span>, <span class="dv">0</span>, <span class="dv">0</span>))(params, X, y).mean()</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>value_and_grad_fn <span class="op">=</span> jax.value_and_grad(loss_fn)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> optax.adam(<span class="fl">1e-3</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> opt.init(params)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>n_epochs <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_step(params_and_state, aux):</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    params, state <span class="op">=</span> params_and_state</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    value, grads <span class="op">=</span> value_and_grad_fn(params, X, y)</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    updates, new_state <span class="op">=</span> opt.update(grads, state)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    new_params <span class="op">=</span> optax.apply_updates(params, updates)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (new_params, new_state), value</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>(final_params, _), losses <span class="op">=</span> jax.lax.scan(one_step, (params, state), <span class="va">None</span>, length<span class="op">=</span>n_epochs)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>plt.plot(losses)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="get-pre-al-prediction-results" class="level2">
+<h2 class="anchored" data-anchor-id="get-pre-al-prediction-results">Get pre-AL prediction results</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>test_ds <span class="op">=</span> clean_ds.sel(location_id<span class="op">=</span>np.concatenate([deployed_locations, test_locations]), datetime<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2021-07-16"</span>, <span class="st">"2021-07-31"</span>))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>result_list <span class="op">=</span> []</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> time <span class="kw">in</span> tqdm(test_ds.datetime.values):</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    tmp_ds <span class="op">=</span> test_ds.sel(datetime<span class="op">=</span>time)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    tmp_ds <span class="op">=</span> tmp_ds.dropna(dim<span class="op">=</span><span class="st">"location_id"</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    available_deployed_locations <span class="op">=</span> np.intersect1d(deployed_locations, tmp_ds.location_id.values)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    tmp_context <span class="op">=</span> tmp_ds.sel(location_id<span class="op">=</span>available_deployed_locations)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    available_test_locations <span class="op">=</span> np.intersect1d(test_locations, tmp_ds.location_id.values)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    tmp_target <span class="op">=</span> tmp_ds.sel(location_id<span class="op">=</span>available_test_locations)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    X_context <span class="op">=</span> jnp.stack([tmp_context.lat.values, tmp_context.lon.values], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    y_context <span class="op">=</span> jnp.array(tmp_context.value.values)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    X_target <span class="op">=</span> jnp.stack([tmp_target.lat.values, tmp_target.lon.values], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    y_target <span class="op">=</span> jnp.array(tmp_target.value.values)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    gp <span class="op">=</span> get_gp(final_params, X_context)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    pred_gp <span class="op">=</span> gp.condition(y_context, X_target).gp</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>    pred_mean <span class="op">=</span> pred_gp.mean</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>    res_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"time"</span>: np.repeat(time, <span class="bu">len</span>(X_target)),</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lat"</span>: X_target[:, <span class="dv">0</span>],</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lon"</span>: X_target[:, <span class="dv">1</span>],</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"location_id"</span>: tmp_target.location_id.values,</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"value"</span>: y_target <span class="op">*</span> std_val <span class="op">+</span> mean_val,</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pred"</span>: pred_mean <span class="op">*</span> std_val <span class="op">+</span> mean_val,</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>    result_list.append(res_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 381/381 [01:39&lt;00:00,  3.84it/s]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>final_df <span class="op">=</span> pd.concat(result_list).set_index([<span class="st">"time"</span>], drop<span class="op">=</span><span class="va">False</span>).sort_index()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>random_location <span class="op">=</span> final_df.location_id.sample().item()</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>final_df[final_df[<span class="st">"location_id"</span>] <span class="op">==</span> random_location].plot(x<span class="op">=</span><span class="st">"time"</span>, y<span class="op">=</span>[<span class="st">"value"</span>, <span class="st">"pred"</span>], figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">3</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="baselines_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> mean_squared_error(final_df[<span class="st">"value"</span>], final_df[<span class="st">"pred"</span>], squared<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>adjusted <span class="op">=</span> final_df[<span class="st">"value"</span>].values</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>adjusted[adjusted <span class="op">&lt;</span> <span class="fl">0.1</span>] <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>mape <span class="op">=</span> mean_absolute_percentage_error(adjusted, final_df[<span class="st">"pred"</span>])</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">"rmse"</span>: [rmse], <span class="st">"mape"</span>: [mape]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">rmse</th>
+<th data-quarto-table-cell-role="th">mape</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>4.711835</td>
+<td>3.128352</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="sensor-placement-with-al" class="level2">
+<h2 class="anchored" data-anchor-id="sensor-placement-with-al">Sensor placement with AL</h2>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pool_ds <span class="op">=</span> clean_ds.sel(location_id<span class="op">=</span>pool_locations<span class="op">+</span>deployed_locations, datetime<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2021-07-01"</span>, <span class="st">"2021-07-15"</span>))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>pool_ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>UFuncTypeError: ufunc 'add' did not contain a loop with signature matching types (dtype('&lt;U21'), dtype('&lt;U21')) -&gt; None</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> regdata <span class="im">as</span> rd</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> rd.SineNoisy()</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.X.shape, data.y.shape, data.X_test.shape, data.f(np.array([[<span class="fl">0.1</span>], [<span class="fl">0.5</span>]])).shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(100, 1) (100, 1) (200, 1) (2, 1)</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
