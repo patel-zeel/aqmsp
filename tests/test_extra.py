@@ -1,4 +1,6 @@
 import os
+
+# install gitpython with `pip install gitpython`
 import git
 
 code_files = [".py", ".ipynb"]
