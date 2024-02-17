@@ -1,3 +1,9 @@
 [submodule "aqmsp_data"]
 	path = aqmsp_data
 	url = https://github.com/patel-zeel/aqmsp_data.git
+[submodule "aqmsp_models"]
+	path = aqmsp_models
+	url = https://github.com/patel-zeel/aqmsp_models.git
+[submodule "aqmsp_results"]
+	path = aqmsp_results
+	url = https://github.com/patel-zeel/aqmsp_results.git

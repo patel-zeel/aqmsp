@@ -1,0 +1,127 @@
+[W 09:55:26.966 NotebookApp] Error loading server extension jupyter_http_over_ws
+    Traceback (most recent call last):
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_http_over_ws'
+[I 09:55:26.968 NotebookApp] Serving notebooks from local directory: /home/patel_zeel/aqmsp
+[I 09:55:26.968 NotebookApp] Jupyter Notebook 6.4.10 is running at:
+[I 09:55:26.968 NotebookApp] http://ramanujan:8888/?token=99c6e3bfbe1ed861439486b375236103b7b8eac61a0cb181
+[I 09:55:26.968 NotebookApp]  or http://127.0.0.1:8888/?token=99c6e3bfbe1ed861439486b375236103b7b8eac61a0cb181
+[I 09:55:26.968 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 09:55:26.971 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/patel_zeel/.local/share/jupyter/runtime/nbserver-1495080-open.html
+    Or copy and paste one of these URLs:
+        http://ramanujan:8888/?token=99c6e3bfbe1ed861439486b375236103b7b8eac61a0cb181
+     or http://127.0.0.1:8888/?token=99c6e3bfbe1ed861439486b375236103b7b8eac61a0cb181
+[I 09:55:39.613 NotebookApp] 302 GET / (172.16.4.6) 0.950000ms
+[I 09:55:39.668 NotebookApp] 302 GET /tree? (172.16.4.6) 0.900000ms
+[I 09:55:50.545 NotebookApp] 302 GET / (127.0.0.1) 0.520000ms
+[I 09:55:50.607 NotebookApp] 302 GET /tree? (127.0.0.1) 0.720000ms
+[I 09:56:08.839 NotebookApp] 302 POST /login?next=%2Ftree%3F (127.0.0.1) 1.400000ms
+[W 09:56:31.874 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[W 09:56:31.988 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20240106095526 (127.0.0.1) 11.180000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[I 09:56:32.091 NotebookApp] Kernel started: 80cf76f7-2d5c-45df-a7ee-4fa91464cdda, name: python3
+[W 09:56:32.440 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20240106095526 (127.0.0.1) 2.530000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[I 09:58:28.518 NotebookApp] Saving file at /projects/better_interpol/notebooks/gp2.ipynb
+[W 09:58:28.519 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[I 09:58:28.538 NotebookApp] Starting buffering for 80cf76f7-2d5c-45df-a7ee-4fa91464cdda:448327e36c8245048a2e9ab6f5b47618
+[W 09:58:29.143 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[W 09:58:29.266 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20240106095526 (127.0.0.1) 2.150000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[W 09:58:29.742 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20240106095526 (127.0.0.1) 1.930000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[I 09:58:49.060 NotebookApp] Shutting down on /api/shutdown request.
+[I 09:58:49.062 NotebookApp] Shutting down 1 kernel
+[I 09:58:49.062 NotebookApp] Kernel shutdown: 80cf76f7-2d5c-45df-a7ee-4fa91464cdda
+[I 09:58:49.139 NotebookApp] Starting buffering for 80cf76f7-2d5c-45df-a7ee-4fa91464cdda:f319042537d1437581996bcf8db0ca7a
+[I 09:58:49.165 NotebookApp] Kernel shutdown: 80cf76f7-2d5c-45df-a7ee-4fa91464cdda
+[E 09:58:49.165 NotebookApp] Uncaught exception DELETE /api/sessions/d929ffe7-adf6-4489-9b56-a83e86f317d3 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='localhost:8889', method='DELETE', uri='/api/sessions/d929ffe7-adf6-4489-9b56-a83e86f317d3', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/tornado/gen.py", line 769, in run
+        yielded = self.gen.throw(*exc_info)  # type: ignore
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 162, in delete
+        yield maybe_future(sm.delete_session(session_id))
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/tornado/gen.py", line 762, in run
+        value = future.result()
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/tornado/gen.py", line 775, in run
+        yielded = self.gen.send(value)
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 287, in delete_session
+        yield maybe_future(self.kernel_manager.shutdown_kernel(session['kernel']['id']))
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+        self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/jupyter_client/utils.py", line 26, in wrapped
+        raise e
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/jupyter_client/utils.py", line 23, in wrapped
+        return loop.run_until_complete(future)
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/nest_asyncio.py", line 99, in run_until_complete
+        return f.result()
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/asyncio/tasks.py", line 180, in _step
+        result = coro.send(None)
+      File "/home/patel_zeel/miniconda3/envs/gpy/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 274, in _async_shutdown_kernel
+        if km.ready.exception():
+    asyncio.base_futures.InvalidStateError: Exception is not set.
+[W 09:58:49.170 NotebookApp] Unhandled error
+[E 09:58:49.170 NotebookApp] {
+      "Host": "localhost:8889",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+[E 09:58:49.170 NotebookApp] 500 DELETE /api/sessions/d929ffe7-adf6-4489-9b56-a83e86f317d3 (127.0.0.1) 6.200000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[I 09:58:49.584 NotebookApp] Shutting down 0 terminals
+[I 09:59:01.292 NotebookApp] [nb_conda_kernels] enabled, 27 kernels found
+[W 09:59:01.496 NotebookApp] Error loading server extension jupyter_http_over_ws
+    Traceback (most recent call last):
+      File "/home/patel_zeel/miniconda3/lib/python3.9/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/patel_zeel/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_http_over_ws'
+[I 09:59:01.501 NotebookApp] [nb_conda] enabled
+[I 09:59:01.504 NotebookApp] Serving notebooks from local directory: /home/patel_zeel/aqmsp
+[I 09:59:01.504 NotebookApp] Jupyter Notebook 6.4.8 is running at:
+[I 09:59:01.504 NotebookApp] http://ramanujan:8888/?token=8502a87bedb154bda3c78e97e45561e76bf448ee56c54fe9
+[I 09:59:01.504 NotebookApp]  or http://127.0.0.1:8888/?token=8502a87bedb154bda3c78e97e45561e76bf448ee56c54fe9
+[I 09:59:01.504 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 09:59:01.507 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/patel_zeel/.local/share/jupyter/runtime/nbserver-1495606-open.html
+    Or copy and paste one of these URLs:
+        http://ramanujan:8888/?token=8502a87bedb154bda3c78e97e45561e76bf448ee56c54fe9
+     or http://127.0.0.1:8888/?token=8502a87bedb154bda3c78e97e45561e76bf448ee56c54fe9
+[I 09:59:08.996 NotebookApp] 302 GET / (127.0.0.1) 0.710000ms
+Unable to load extension: pydevd_plugins.extensions.types.pydevd_plugin_pandas_types
+[W 09:59:42.294 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[W 09:59:42.484 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20240106095901 (127.0.0.1) 10.430000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+[I 09:59:42.630 NotebookApp] Kernel started: f886dafa-3353-44e2-82ec-fad3170ec8e2, name: python3
+[W 09:59:42.707 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20240106095901 (127.0.0.1) 2.000000ms referer=http://localhost:8889/notebooks/projects/better_interpol/notebooks/gp2.ipynb
+Unable to load extension: pydevd_plugins.extensions.types.pydevd_plugin_pandas_types
+[I 09:59:49.239 NotebookApp] Starting buffering for f886dafa-3353-44e2-82ec-fad3170ec8e2:b3635bf76b1341e4b47a25ef6dc60e34
+[I 09:59:49.261 NotebookApp] Kernel shutdown: f886dafa-3353-44e2-82ec-fad3170ec8e2
+[I 09:59:49.570 NotebookApp] Kernel started: 7a7c515e-6a0c-4fec-8aa9-d79bffed385a, name: conda-env-gpy-py
+CONDA_PREFIX=/home/patel_zeel/miniconda3/envs/gpy
+[I 10:00:12.322 NotebookApp] Saving file at /projects/better_interpol/notebooks/gp2.ipynb
+[W 10:00:12.322 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[I 10:01:42.783 NotebookApp] Saving file at /projects/better_interpol/notebooks/gp2.ipynb
+[W 10:01:42.783 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[IPKernelApp] WARNING | No such comm: 9359af9fc2d444f290b899dea720cfbe
+[I 10:03:43.429 NotebookApp] Saving file at /projects/better_interpol/notebooks/gp2.ipynb
+[W 10:03:43.430 NotebookApp] Notebook projects/better_interpol/notebooks/gp2.ipynb is not trusted
+[IPKernelApp] WARNING | No such comm: 336f0cb769db424badc0b41d5d0ebb53
+[I 10:04:24.340 NotebookApp] Starting buffering for 7a7c515e-6a0c-4fec-8aa9-d79bffed385a:b3635bf76b1341e4b47a25ef6dc60e34
+[I 10:04:29.653 NotebookApp] Kernel shutdown: 7a7c515e-6a0c-4fec-8aa9-d79bffed385a
+[I 10:04:39.344 NotebookApp] Shutting down on /api/shutdown request.
+[I 10:04:39.345 NotebookApp] Shutting down 0 kernels
+[I 10:04:39.346 NotebookApp] Shutting down 0 terminals
