@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Placemark id="3">
+            <name>Alipur, Delhi - DPCC</name>
+            <Point id="2">
+                <coordinates>77.15301,28.815329,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="5">
+            <name>Anand Vihar, Delhi - DPCC</name>
+            <Point id="4">
+                <coordinates>77.315809,28.647622,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="7">
+            <name>Arya Nagar, Bahadurgarh - HSPCB</name>
+            <Point id="6">
+                <coordinates>76.9254,28.6701,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="9">
+            <name>Ashok Vihar, Delhi - DPCC</name>
+            <Point id="8">
+                <coordinates>77.181665,28.695381,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="11">
+            <name>Aya Nagar, Delhi - IMD</name>
+            <Point id="10">
+                <coordinates>77.1099364,28.4706914,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="13">
+            <name>Bawana, Delhi - DPCC</name>
+            <Point id="12">
+                <coordinates>77.051074,28.7762,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="15">
+            <name>Burari Crossing, Delhi - IMD</name>
+            <Point id="14">
+                <coordinates>77.2011573,28.7256504,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="17">
+            <name>CRRI Mathura Road, Delhi - IMD</name>
+            <Point id="16">
+                <coordinates>77.2735737,28.5512005,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="19">
+            <name>Chandni Chowk, Delhi - IITM</name>
+            <Point id="18">
+                <coordinates>77.227234,28.656756,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="21">
+            <name>DTU, Delhi - CPCB</name>
+            <Point id="20">
+                <coordinates>77.1112615,28.7500499,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="23">
+            <name>Dr. Karni Singh Shooting Range, Delhi - DPCC</name>
+            <Point id="22">
+                <coordinates>77.26484,28.498571,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="25">
+            <name>Dwarka-Sector 8, Delhi - DPCC</name>
+            <Point id="24">
+                <coordinates>77.0719006,28.5710274,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="27">
+            <name>IGI Airport (T3), Delhi - IMD</name>
+            <Point id="26">
+                <coordinates>77.1180053,28.5627763,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="29">
+            <name>IHBAS, Dilshad Garden, Delhi - CPCB</name>
+            <Point id="28">
+                <coordinates>77.3025234,28.6811736,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="31">
+            <name>ITO, Delhi - CPCB</name>
+            <Point id="30">
+                <coordinates>77.24106,28.628624,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="33">
+            <name>Indirapuram, Ghaziabad - UPPCB</name>
+            <Point id="32">
+                <coordinates>77.358075,28.646233,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="35">
+            <name>Jahangirpuri, Delhi - DPCC</name>
+            <Point id="34">
+                <coordinates>77.170633,28.73282,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="37">
+            <name>Jawaharlal Nehru Stadium, Delhi - DPCC</name>
+            <Point id="36">
+                <coordinates>77.233829,28.58028,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="39">
+            <name>Knowledge Park - III, Greater Noida - UPPCB</name>
+            <Point id="38">
+                <coordinates>77.482,28.47272,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="41">
+            <name>Knowledge Park - V, Greater Noida - UPPCB</name>
+            <Point id="40">
+                <coordinates>77.453663,28.557054,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="43">
+            <name>Lodhi Road, Delhi - IITM</name>
+            <Point id="42">
+                <coordinates>77.221667,28.588333,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="45">
+            <name>Lodhi Road, Delhi - IMD</name>
+            <Point id="44">
+                <coordinates>77.2273074,28.5918245,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="47">
+            <name>Loni, Ghaziabad - UPPCB</name>
+            <Point id="46">
+                <coordinates>77.278792,28.757294,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="49">
+            <name>Major Dhyan Chand National Stadium, Delhi - DPCC</name>
+            <Point id="48">
+                <coordinates>77.237738,28.611281,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="51">
+            <name>Mandir Marg, Delhi - DPCC</name>
+            <Point id="50">
+                <coordinates>77.201067,28.636429,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="53">
+            <name>Mundka, Delhi - DPCC</name>
+            <Point id="52">
+                <coordinates>77.076574,28.684678,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="55">
+            <name>NISE Gwal Pahari, Gurugram - IMD</name>
+            <Point id="54">
+                <coordinates>77.148944,28.422681,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="57">
+            <name>NSIT Dwarka, Delhi - CPCB</name>
+            <Point id="56">
+                <coordinates>77.0325413,28.60909,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="59">
+            <name>Najafgarh, Delhi - DPCC</name>
+            <Point id="58">
+                <coordinates>76.933762,28.570173,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="61">
+            <name>Narela, Delhi - DPCC</name>
+            <Point id="60">
+                <coordinates>77.101981,28.822836,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="63">
+            <name>Nathu Colony, Ballabgarh - HSPCB</name>
+            <Point id="62">
+                <coordinates>77.319699,28.3419248,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="65">
+            <name>Nehru Nagar, Delhi - DPCC</name>
+            <Point id="64">
+                <coordinates>77.250515,28.56789,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="67">
+            <name>New Collectorate, Baghpat - UPPCB</name>
+            <Point id="66">
+                <coordinates>77.213357,28.974801,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="69">
+            <name>New Industrial Town, Faridabad - HSPCB</name>
+            <Point id="68">
+                <coordinates>77.30059,28.39072,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="71">
+            <name>New Moti Bagh, Delhi - MHUA</name>
+            <Point id="70">
+                <coordinates>77.184,28.57834,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="73">
+            <name>North Campus, DU, Delhi - IMD</name>
+            <Point id="72">
+                <coordinates>77.1585447,28.6573814,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="75">
+            <name>Okhla Phase-2, Delhi - DPCC</name>
+            <Point id="74">
+                <coordinates>77.271255,28.530785,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="77">
+            <name>Patparganj, Delhi - DPCC</name>
+            <Point id="76">
+                <coordinates>77.287209,28.623763,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="79">
+            <name>Punjabi Bagh, Delhi - DPCC</name>
+            <Point id="78">
+                <coordinates>77.131023,28.674045,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="81">
+            <name>Pusa, Delhi - DPCC</name>
+            <Point id="80">
+                <coordinates>77.146275,28.639652,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="83">
+            <name>Pusa, Delhi - IMD</name>
+            <Point id="82">
+                <coordinates>77.173332,28.63611,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="85">
+            <name>R K Puram, Delhi - DPCC</name>
+            <Point id="84">
+                <coordinates>77.186937,28.563262,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="87">
+            <name>Rohini, Delhi - DPCC</name>
+            <Point id="86">
+                <coordinates>77.11992,28.732528,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="89">
+            <name>Sanjay Nagar, Ghaziabad - UPPCB</name>
+            <Point id="88">
+                <coordinates>77.453839,28.685382,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="91">
+            <name>Sardar Patel Inter College, Baghpat - UPPCB</name>
+            <Point id="90">
+                <coordinates>77.278761,28.964949,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="93">
+            <name>Sector - 125, Noida - UPPCB</name>
+            <Point id="92">
+                <coordinates>77.3231257,28.5447608,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="95">
+            <name>Sector - 62, Noida - IMD</name>
+            <Point id="94">
+                <coordinates>77.3577104,28.6245479,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="97">
+            <name>Sector 11, Faridabad - HSPCB</name>
+            <Point id="96">
+                <coordinates>77.315741,28.376058,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="99">
+            <name>Sector 30, Faridabad - HSPCB</name>
+            <Point id="98">
+                <coordinates>77.3217,28.4417,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="101">
+            <name>Sector- 16A, Faridabad - HSPCB</name>
+            <Point id="100">
+                <coordinates>77.3099081,28.4088421,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="103">
+            <name>Sector-1, Noida - UPPCB</name>
+            <Point id="102">
+                <coordinates>77.3101,28.5898,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="105">
+            <name>Sector-116, Noida - UPPCB</name>
+            <Point id="104">
+                <coordinates>77.393848,28.56923,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="107">
+            <name>Sector-2 IMT, Manesar - HSPCB</name>
+            <Point id="106">
+                <coordinates>76.93609,28.360699,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="109">
+            <name>Sector-51, Gurugram - HSPCB</name>
+            <Point id="108">
+                <coordinates>77.0667,28.4227,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="111">
+            <name>Shadipur, Delhi - CPCB</name>
+            <Point id="110">
+                <coordinates>77.1473105,28.6514781,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="113">
+            <name>Sirifort, Delhi - CPCB</name>
+            <Point id="112">
+                <coordinates>77.2159377,28.5504249,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="115">
+            <name>Sonia Vihar, Delhi - DPCC</name>
+            <Point id="114">
+                <coordinates>77.249485,28.710508,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="117">
+            <name>Sri Aurobindo Marg, Delhi - DPCC</name>
+            <Point id="116">
+                <coordinates>77.190156,28.531346,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="119">
+            <name>Teri Gram, Gurugram - HSPCB</name>
+            <Point id="118">
+                <coordinates>77.1465,28.4275,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="121">
+            <name>Vasundhara, Ghaziabad - UPPCB</name>
+            <Point id="120">
+                <coordinates>77.3572563,28.6603346,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="123">
+            <name>Vikas Sadan, Gurugram - HSPCB</name>
+            <Point id="122">
+                <coordinates>77.0263051,28.4501238,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="125">
+            <name>Vivek Vihar, Delhi - DPCC</name>
+            <Point id="124">
+                <coordinates>77.31526,28.672342,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="127">
+            <name>Wazirpur, Delhi - DPCC</name>
+            <Point id="126">
+                <coordinates>77.165453,28.699793,0.0</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>
